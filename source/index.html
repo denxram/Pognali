@@ -10,23 +10,56 @@
 
 <body>
     <header class="page-header">
-        <div class="grid grid--bg-blue">
+        <div id="header-menu" class="grid grid--bg-dark-blue">
             <div class="header-top grid__col">
                 <div class="header-top__logo">
-                    <a href="" class="header-top__logo-link">
+                    <a class="header-top__logo-link">
                         <picture>
                             <img src="img/logo-mobile-white@1x.png" srcset="img/logo-mobile-white@2x.png" alt="Погнали">
                         </picture>
                     </a>
                 </div>
-                <button class="header-top__burger-menu"></button>
+                <button class="header-top__burger-menu-btn"></button>
+                <div class="header-top__hidden-menu hidden-menu">
+                    <nav class="hidden-menu__main-nav">
+                        <ul class="hidden-menu_site-list site-list">
+                            <li class="site-list__item"><a href="#" class="site-list__link">О сервисе</a>
+                            </li>
+                            <li class="site-list__item"><a href="form.html" class="site-list__link">Направления</a>
+                            </li>
+                            <li class="site-list__item"><a href="catalog.html" class="site-list__link">Попутчики</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a href="#" class="hidden-menu__auth-link auth-btn">Авторизация</a>
+                </div>
+                <div class="hidden-menu__contacts our-contacts">
+                    <a class="our-contacts__tel" href="tel:88005558628">8 800 555-86-28</a>
+                    <a class="our-contacts__mail" href="mailto:mail@htmlacademy.ru">mail@htmlacademy.ru</a>
+                </div>
+                <div class="hidden-menu__social social">
+                    <ul class="social__list">
+                        <li class="social__item">
+                            <a class="social__link" href="#">Фейсбук</a>
+                        </li>
+                        <li class="social__item">
+                            <a class="social__link" href="#">Вконтакте</a>
+                        </li>
+                        <li class="social__item">
+                            <a class="social__link" href="#">Инстаграм</a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
+        </div>
+        <div class="grid grid--bg-dark-blue">
             <div class="header-center grid__col">
                 <span class="header-center__slogan">В путешествие с крутыми попутчиками!</span>
                 <div class="header-center__user-info user-info">
-                    <a class="user-info__phone"></a>
-                    <a class="user-info__email"></a>
-                    <a class="user-info__auth">Авторизация</a>
+                    <a href="tel:88005558628" class="user-info__phone"></a>
+                    <a href="mailto:mail@htmlacademy.ru" class="user-info__email"></a>
+                    <a href="#" class="user-info__auth-link auth-btn">Авторизация</a>
                 </div>
                 <div class="header-center__review">
                     <p class="header-center__review-text">«Лучшее приложение,
@@ -36,7 +69,7 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid--bg-light-blue">
+        <div class="grid grid--bg-blue">
             <ol class="page-header__site-info-list site-info-list grid__col">
                 <li class="site-info-item">
                     <a href="#" class="site-info-link">Выберите
@@ -59,7 +92,259 @@
     </header>
     <main class="page-main">
 
+        <section class="service grid grid--bg-blue">
+            <div class="service__inner grid-col">
+                <h2 class="service__title title-section">О сервисе</h2>
+                <p class="service__text text-intro">Любое путешествие веселее
+                    с попутчиками, которые на одной волне с тобой! Делитесь своими идеями путешествий и черпайте
+                    вдохновение в чужих.</p>
+                <p class="service__text--bold text-intro">А если найдете кого-то
+                    близкого по духу — скорее
+                    зовите в совместный трип!</p>
+            </div>
+        </section>
+
+
+        <section class="countries grid grid--bg-gray">
+            <div class="countries__inner grid-col">
+                <h2 class="countries__title title-section">Направления</h2>
+                <p class="countries__text text-intro">Мы не продаем туры
+                    и ничего не рекламируем.
+                    Люди сами пишут о странах, куда хотели бы отправиться
+                    и чем можно там заняться.</p>
+                <div class="countries__list countries-card__list">
+                    <div class="countries-card__item">
+                        <a href="#" class="countries-card__link">
+                            <picture>
+                                <img class="countries-card__image" src="img/thailand-mobile@1x.jpg" alt="thailand">
+                            </picture>
+                            <div class="countries-card__info">
+                                <picture>
+                                    <img class="countries-card__flag-image" src="img/flag-thailand.svg"
+                                        alt="thailand-flag">
+                                </picture>
+                                <h3 class="countries-card__name-title">Таиланд</h3>
+                                <p class="countries-card__text">Джунгли зовут!</p>
+                                <span class="countries-card__num-of-views">18321</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="countries-card__item">
+                        <a href="#" class="countries-card__link">
+                            <picture>
+                                <img class="countries-card__image" src="img/france-mobile@1x.jpg" alt="france">
+                            </picture>
+                            <div class="countries-card__info">
+                                <picture>
+                                    <img class="countries-card__flag-image" src="img/flag-france.svg" alt="france-flag">
+                                </picture>
+                                <h3 class="countries-card__name-title">Франция</h3>
+                                <p class="countries-card__text">Трэ бьен, манифик!</p>
+                                <span class="countries-card__num-of-views">12518</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="countries-card__item">
+                        <a href="#" class="countries-card__link">
+                            <picture>
+                                <img class="countries-card__image" src="img/czech-mobile@1x.jpg" alt="czech">
+                            </picture>
+                            <div class="countries-card__info">
+                                <picture>
+                                    <img class="countries-card__flag-image" src="img/flag-czech.svg" alt="flag-czech">
+                                </picture>
+                                <h3 class="countries-card__name-title">Чехия</h3>
+                                <p class="countries-card__text">Закоулки старой Европы</p>
+                                <span class="countries-card__num-of-views">5326</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a class="countries__link" href="#">Показать все</a>
+            </div>
+        </section>
+        <section class="travelmates grid grid--bg-blue">
+            <div class="travelmates__inner grid-col">
+                <h2 class="travelmates__title title-section">Попутчики</h2>
+                <p class="travelmates__text text-intro">Все мы индивидуальны и у каждого свой взгляд на идеальный отдых.
+                    Одному нужен пляж и коктейль, а другому маршрут для хайкинга.</p>
+                <p class="travelmates__text--bold text-intro">Теперь можно легко найти единомышленников!</p>
+                <div class="travelmates__list travelmates-card__list">
+                    <div class="travelmates-card__item">
+                        <picture>
+                            <img class="travelmates-card__image" src="" alt="">
+                        </picture>
+                        <div class="travelmates-card__level traveler-level">
+                            <span class="traveler-level__value">99</span>
+                            <span class="traveler-level__text">level</span>
+                        </div>
+                        <ul class="travelmates-card__flag-list">
+                            <li class="travelmates-card__flag-item">
+                                <picture>
+                                    <img class="travelmates-card__flag-image" src="img/sri-lanka-flag.png"
+                                        alt="sri-lanka">
+                                </picture>
+                            </li>
+                            <li class="travelmates-card__flag-item">
+                                <picture>
+                                    <img class="travelmates-card__flag-image" src="img/thai-flag.png" alt="thailand">
+                                </picture>
+                            </li>
+                            <li class="travelmates-card__flag-item">
+                                <picture>
+                                    <img class="travelmates-card__flag-image" src="img/seychel-flag.png"
+                                        alt="seychelles">
+                                </picture>
+                            </li>
+                        </ul>
+                        <div class="travelmates-card__companion-info">
+                            <p class="travelmates-card__companion-name">Таня Фирсова</p>
+                            <p class="travelmates-card__companion-hashtags">#ЗОЖ #ПП #Фитнес #пляж
+                                #авокадо #смузи</p>
+                        </div>
+
+                        <ul class="travelmates-card__options-list">
+                            <li class="travelmates-card__option-item">
+                                <span
+                                    class="travelmates-card__option-icon travelmates-card__option-icon--active">svg-image</span>
+                                <span class="travelmates-card__option-tooltip">Авиаперелет</span>
+                            </li>
+                            <li class="travelmates-card__option-item">
+                                <span class="travelmates-card__option-icon">svg-image</span>
+                                <span class="travelmates-card__option-tooltip">Автотранспорт</span>
+                            </li>
+                            <li class="travelmates-card__option-item">
+                                <span class="travelmates-card__option-icon">svg-image</span>
+                                <span class="travelmates-card__option-tooltip">Велосипед</span>
+                            </li>
+                            <li class="travelmates-card__option-item">
+                                <span class="travelmates-card__option-icon">svg-image</span>
+                                <span class="travelmates-card__option-tooltip">Пешком</span>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="travelmates-card__item">
+                        <picture>
+                            <img class="travelmates-card__image" src="" alt="">
+                        </picture>
+                        <div class="travelmates-card__level traveler-level">
+                            <span class="traveler-level__value">80</span>
+                            <span class="traveler-level__text">level</span>
+                        </div>
+                        <ul class="travelmates-card__flag-list">
+                            <li class="travelmates-card__flag-item">
+                                <picture>
+                                    <img class="travelmates-card__flag-image" src="img/belgium-flag.png" alt="belgium">
+                                </picture>
+                            </li>
+                            <li class="travelmates-card__flag-item">
+                                <picture>
+                                    <img class="travelmates-card__flag-image" src="img/chech-flag.png" alt="chech">
+                                </picture>
+                            </li>
+                        </ul>
+                        <div class="travelmates-card__companion-info">
+                            <p class="travelmates-card__companion-name">Петя Демин</p>
+                            <p class="travelmates-card__companion-hashtags">#бургер #бар #футбол
+                                #концерт #крафт</p>
+                        </div>
+
+                        <ul class="travelmates-card__options-list">
+                            <li class="travelmates-card__option-item">
+                                <span
+                                    class="travelmates-card__option-icon travelmates-card__option-icon--active">svg-image</span>
+                                <span class="travelmates-card__option-tooltip">Авиаперелет</span>
+                            </li>
+                            <li class="travelmates-card__option-item">
+                                <span
+                                    class="travelmates-card__option-icon travelmates-card__option-icon--active">svg-image</span>
+                                <span class="travelmates-card__option-tooltip">Автотранспорт</span>
+                            </li>
+                            <li class="travelmates-card__option-item">
+                                <span class="travelmates-card__option-icon">svg-image</span>
+                                <span class="travelmates-card__option-tooltip">Велосипед</span>
+                            </li>
+                            <li class="travelmates-card__option-item">
+                                <span
+                                    class="travelmates-card__option-icon travelmates-card__option-icon--active">svg-image</span>
+                                <span class="travelmates-card__option-tooltip">Пешком</span>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <a class="travelmates__link" href="#">Показать всех</a>
+            </div>
+        </section>
+        <section class="rates grid grid--bg-gray">
+            <div class="rates__inner grid-col">
+                <h2 class="rates__title title-section">Добавьте свой профиль</h2>
+                <picture>
+                    <img class="rates__image" src="img/rates@1x.png" alt="rates">
+                </picture>
+                <dl class="rates__price-list price-list__items">
+                    <dt class="price-list__service">Базовое размещение</dt>
+                    <dd class="price-list__cost">Бесплатно</dd>
+                    <dt class="price-list__service">Вывод на первых позициях</dt>
+                    <dd class="price-list__cost">99 руб./мес</dd>
+                    <dt class="price-list__service">Кастомный цвет карточки</dt>
+                    <dd class="price-list__cost">59 руб./мес</dd>
+                </dl>
+                <button class="rates__modal-show-btn">Показать тарифы для бизнеса</button>
+            </div>
+        </section>
+        <section class="cta-form grid grid--bg-blue">
+            <div class="cta-for__inner grid-col">
+                <h2 class="cta-form__title title-section">Заинтересовались?</h2>
+                <p class="cta-form__text text-intro">Зарегистрируйтесь,
+                    это быстро и бесплатно!
+                    Уже зарегистрированы? Тогда скорее <a href="#" class="cta-form__text-link">авторизуйтесь</a>.</p>
+                <form class="cta-form__form">
+                    <input class="cta-form__input" type="email">
+                    <button class="cta-form__submit-btn" type="submit"></button>
+                </form>
+                <p class="cta-form__text text-intro">Остались вопросы?
+                    Мы с радостью на них ответим!</p>
+                <div class="cta-form__grid-contacts our-contacts">
+                    <a class="our-contacts__tel" href="tel:88005558628">8 800 555-86-28</a>
+                    <a class="our-contacts__mail" href="mailto:mail@htmlacademy.ru">mail@htmlacademy.ru</a>
+                </div>
+            </div>
+        </section>
+        <section class="our-address grid grid--bg-yellow">
+            <div class="our-address__inner grid-col">
+                <p class="our-address__text">ул. Большая
+                    Конюшенная, 19/8</p>
+                <a class="our-address__link" href="#">Проложить маршрут</a>
+            </div>
+        </section>
+        <section class="map">
+
+        </section>
     </main>
+    <footer class="page-footer">
+        <picture>
+            <img src="img/logo-mobile-blue@1x.png" alt="pognali">
+        </picture>
+        <div class="page-footer__social social">
+            <ul class="social__list">
+                <li class="social__item">
+                    <a class="social__link" href="#">Фейсбук</a>
+                </li>
+                <li class="social__item">
+                    <a class="social__link" href="#">Вконтакте</a>
+                </li>
+                <li class="social__item">
+                    <a class="social__link" href="#">Инстаграм</a>
+                </li>
+            </ul>
+        </div>
+        <div class="page-footer__copyright copyright">
+            <p class="copyright__text">Разработано</p>
+            <svg class="copyright__logo"></svg>
+        </div>
+    </footer>
 </body>
 
 </html>
