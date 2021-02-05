@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG stack preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		
+<!--
+	
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as stack SVGs, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-bike-dims { width: 24px; height: 21px; }
+	.svg-bus-dims { width: 17px; height: 21px; }
+	.svg-business-dims { width: 17px; height: 21px; }
+	.svg-circle-dims { width: 200px; height: 200px; }
+	.svg-close-dims { width: 18.6px; height: 18.6px; }
+	.svg-close-form-dims { width: 9px; height: 10px; }
+	.svg-companion-back-tablet-dims { width: 212px; height: 212px; }
+	.svg-companion-filter-expend-button-dims { width: 10px; height: 5px; }
+	.svg-contacts-icon-dims { width: 45px; height: 45px; }
+	.svg-contacts-icon-desktop-dims { width: 90px; height: 90px; }
+	.svg-contacts-icon-mail-dims { width: 45px; height: 45px; }
+	.svg-contacts-icon-mail-desktop-dims { width: 90px; height: 90px; }
+	.svg-contacts-icon-phone-tablet-dims { width: 76px; height: 76px; }
+	.svg-contacts-icon-tablet-dims { width: 68px; height: 68px; }
+	.svg-contacts-location-dims { width: 28px; height: 43px; }
+	.svg-contacts-mail-dims { width: 36px; height: 26px; }
+	.svg-contacts-phone-dims { width: 36px; height: 36px; }
+	.svg-delete-button-form-dims { width: 21px; height: 21px; }
+	.svg-dots-dims { width: 27px; height: 5px; }
+	.svg-dropdown-dims { width: 10px; height: 5px; }
+	.svg-dropdown-form-dims { width: 17px; height: 9px; }
+	.svg-facebook-dims { width: 11px; height: 21px; }
+	.svg-filter-dims { width: 15px; height: 10px; }
+	.svg-filter-checkbox-active-dims { width: 18px; height: 18px; }
+	.svg-filter-close-dims { width: 16px; height: 16px; }
+	.svg-filter-close-tablet-dims { width: 24px; height: 23px; }
+	.svg-filter-range-btn-dims { width: 10px; height: 10px; }
+	.svg-filter-show-more-tablet-dims { width: 30px; height: 6px; }
+	.svg-flag-australia-dims { width: 71px; height: 48px; }
+	.svg-flag-belgium-dims { width: 71px; height: 48px; }
+	.svg-flag-bosnia-dims { width: 71px; height: 48px; }
+	.svg-flag-czech-dims { width: 71px; height: 48px; }
+	.svg-flag-dominica-dims { width: 71px; height: 48px; }
+	.svg-flag-france-dims { width: 71px; height: 48px; }
+	.svg-flag-germany-dims { width: 512px; height: 512px; }
+	.svg-flag-seychelles-dims { width: 71px; height: 48px; }
+	.svg-flag-sri-lanka-dims { width: 71px; height: 48px; }
+	.svg-flag-thailand-dims { width: 71px; height: 48px; }
+	.svg-flag-united-kingdom-dims { width: 71px; height: 48px; }
+	.svg-flag-usa-dims { width: 71px; height: 48px; }
+	.svg-form-arrow-back-dims { width: 9px; height: 19px; }
+	.svg-form-arrow-down-dims { width: 8px; height: 11px; }
+	.svg-form-border-fade-tablet-dims { width: 1px; height: 70px; }
+	.svg-form-border-tablet-dims { width: 1px; height: 326px; }
+	.svg-form-bullet-dims { width: 5px; height: 5px; }
+	.svg-form-delete-button-tablet-dims { width: 24px; height: 22px; }
+	.svg-form-direction-border-tablet-dims { width: 14px; height: 274px; }
+	.svg-form-direction-line-mobile-dims { width: 17px; height: 287px; }
+	.svg-form-dropdown-dims { width: 12px; height: 16px; }
+	.svg-form-minus-dims { width: 14px; height: 2px; }
+	.svg-form-plus-dims { width: 14px; height: 14px; }
+	.svg-form-plus-quantity-dims { width: 14px; height: 14px; }
+	.svg-header-dash-desktop-blue-dims { width: 44px; height: 2px; }
+	.svg-header-dash-desktop-white-dims { width: 60px; height: 2px; }
+	.svg-heart-dims { width: 20px; height: 17px; }
+	.svg-heart-active-dims { width: 13px; height: 11px; }
+	.svg-htmlacademy-dims { width: 27px; height: 34px; }
+	.svg-icon-back-dims { width: 32px; height: 16px; }
+	.svg-icon-call-dims { width: 19px; height: 19px; }
+	.svg-icon-mail-dims { width: 19px; height: 17px; }
+	.svg-icon-plus-more-dims { width: 18px; height: 18px; }
+	.svg-icon_mail_btn-dims { width: 40px; height: 40px; }
+	.svg-icon_menu_mobile-dims { width: 25px; height: 11px; }
+	.svg-icon_menu_mobile-grey-dims { width: 25px; height: 11px; }
+	.svg-icon_menu_mobile_close-dims { width: 19px; height: 20px; }
+	.svg-icon_phone_btn-dims { width: 40px; height: 40px; }
+	.svg-instagram-dims { width: 23px; height: 23px; }
+	.svg-level-input-med-dims { width: 16px; height: 35px; }
+	.svg-like-dims { width: 31px; height: 30px; }
+	.svg-like-active-dims { width: 31px; height: 31px; }
+	.svg-like-active-hover-dims { width: 31px; height: 31px; }
+	.svg-like-hover-dims { width: 31px; height: 30px; }
+	.svg-map-mark-dims { width: 45px; height: 45px; }
+	.svg-map-mark-desktop-dims { width: 90px; height: 90px; }
+	.svg-map-mark-tablet-dims { width: 68px; height: 68px; }
+	.svg-map-marker-dims { width: 54px; height: 54px; }
+	.svg-menu-dims { width: 25px; height: 11px; }
+	.svg-menu-close-dims { width: 18px; height: 18px; }
+	.svg-month-arrow-left-dims { width: 18px; height: 34px; }
+	.svg-month-arrow-right-dims { width: 18px; height: 34px; }
+	.svg-offline-dims { width: 6px; height: 7px; }
+	.svg-online-dims { width: 6px; height: 7px; }
+	.svg-open-buisness-dims { width: 68px; height: 68px; }
+	.svg-page-arrow-left-dims { width: 10px; height: 18px; }
+	.svg-plane-dims { width: 19px; height: 21px; }
+	.svg-polygon-dims { width: 11px; height: 12px; }
+	.svg-polygon-white-dims { width: 11px; height: 12px; }
+	.svg-price-list-back-desktop-dims { width: 446px; height: 300px; }
+	.svg-qty-minus-dims { width: 20px; height: 2px; }
+	.svg-qty-minus-mobile-dims { width: 14px; height: 2px; }
+	.svg-qty-plus-dims { width: 20px; height: 20px; }
+	.svg-qty-plus-mobile-dims { width: 14px; height: 14px; }
+	.svg-reg-arrow-dims { width: 12px; height: 14px; }
+	.svg-return-dims { width: 32px; height: 16.1px; }
+	.svg-run-dims { width: 20px; height: 21px; }
+	.svg-service-back-desktop-dims { width: 212px; height: 212px; }
+	.svg-service-tablet-dims { width: 688px; height: 212px; }
+	.svg-show-more-plus-dims { width: 27px; height: 27px; }
+	.svg-small-arrow-dims { width: 5px; height: 10px; }
+	.svg-small-cross-dims { width: 9px; height: 9px; }
+	.svg-tick-dims { width: 12px; height: 12px; }
+	.svg-topmenu-mail-dims { width: 18px; height: 14px; }
+	.svg-topmenu-phone-dims { width: 18px; height: 18px; }
+	.svg-triangle-arrow-left-dims { width: 10px; height: 14px; }
+	.svg-triangle-arrow-right-dims { width: 10px; height: 14px; }
+	.svg-user-dims { width: 20px; height: 20px; }
+	.svg-vk-dims { width: 30px; height: 15.8px; }
+</style>
+
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+		<header>
+			<h1>SVG stack preview</h1>
+			<p>This preview features an SVG stack. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-fragment" target="_blank">support SVG fragment identifiers</a> for SVG stacks to work.</li>
+				<li>Support for SVG fragment identifiers hasn't always been that decent. For older browsers you will have to use some prolyfill like <a href="https://github.com/preciousforever/SVG-Stacker/blob/master/fixsvgstack.jquery.js" target="_blank">fixsvgstack.jquery.js</a>.</li>
+			</ul>
+		</header>
+		<section>
+			
+<!--
+	
+SVG stack
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) to reference certain portions of the
+external sprite. By default, all shapes inside the sprite are hidden by CSS. The `:target` pseudo
+selector is used to show the very shape that is referenced by the fragment identifier.  
+
+-->
+
+			<ul>
+				
+				<li title="bike">
+					<div class="icon-box">
+						
+						<!-- bike -->
+						<img src="../sprite.svg#bike" class="svg-bike-dims" alt="bike"/>
+						
+					</div>
+					<h2>bike</h2>
+				</li>
+				<li title="bus">
+					<div class="icon-box">
+						
+						<!-- bus -->
+						<img src="../sprite.svg#bus" class="svg-bus-dims" alt="bus"/>
+						
+					</div>
+					<h2>bus</h2>
+				</li>
+				<li title="business">
+					<div class="icon-box">
+						
+						<!-- business -->
+						<img src="../sprite.svg#business" class="svg-business-dims" alt="business"/>
+						
+					</div>
+					<h2>business</h2>
+				</li>
+				<li title="circle">
+					<div class="icon-box">
+						
+						<!-- circle -->
+						<img src="../sprite.svg#circle" class="svg-circle-dims" alt="circle"/>
+						
+					</div>
+					<h2>circle</h2>
+				</li>
+				<li title="close">
+					<div class="icon-box">
+						
+						<!-- close -->
+						<img src="../sprite.svg#close" class="svg-close-dims" alt="close"/>
+						
+					</div>
+					<h2>close</h2>
+				</li>
+				<li title="close-form">
+					<div class="icon-box">
+						
+						<!-- close-form -->
+						<img src="../sprite.svg#close-form" class="svg-close-form-dims" alt="close-form"/>
+						
+					</div>
+					<h2>close-form</h2>
+				</li>
+				<li title="companion-back-tablet">
+					<div class="icon-box">
+						
+						<!-- companion-back-tablet -->
+						<img src="../sprite.svg#companion-back-tablet" class="svg-companion-back-tablet-dims" alt="companion-back-tablet"/>
+						
+					</div>
+					<h2>companion-back-tablet</h2>
+				</li>
+				<li title="companion-filter-expend-button">
+					<div class="icon-box">
+						
+						<!-- companion-filter-expend-button -->
+						<img src="../sprite.svg#companion-filter-expend-button" class="svg-companion-filter-expend-button-dims" alt="companion-filter-expend-button"/>
+						
+					</div>
+					<h2>companion-filter-expend-button</h2>
+				</li>
+				<li title="contacts-icon">
+					<div class="icon-box">
+						
+						<!-- contacts-icon -->
+						<img src="../sprite.svg#contacts-icon" class="svg-contacts-icon-dims" alt="contacts-icon"/>
+						
+					</div>
+					<h2>contacts-icon</h2>
+				</li>
+				<li title="contacts-icon-desktop">
+					<div class="icon-box">
+						
+						<!-- contacts-icon-desktop -->
+						<img src="../sprite.svg#contacts-icon-desktop" class="svg-contacts-icon-desktop-dims" alt="contacts-icon-desktop"/>
+						
+					</div>
+					<h2>contacts-icon-desktop</h2>
+				</li>
+				<li title="contacts-icon-mail">
+					<div class="icon-box">
+						
+						<!-- contacts-icon-mail -->
+						<img src="../sprite.svg#contacts-icon-mail" class="svg-contacts-icon-mail-dims" alt="contacts-icon-mail"/>
+						
+					</div>
+					<h2>contacts-icon-mail</h2>
+				</li>
+				<li title="contacts-icon-mail-desktop">
+					<div class="icon-box">
+						
+						<!-- contacts-icon-mail-desktop -->
+						<img src="../sprite.svg#contacts-icon-mail-desktop" class="svg-contacts-icon-mail-desktop-dims" alt="contacts-icon-mail-desktop"/>
+						
+					</div>
+					<h2>contacts-icon-mail-desktop</h2>
+				</li>
+				<li title="contacts-icon-phone-tablet">
+					<div class="icon-box">
+						
+						<!-- contacts-icon-phone-tablet -->
+						<img src="../sprite.svg#contacts-icon-phone-tablet" class="svg-contacts-icon-phone-tablet-dims" alt="contacts-icon-phone-tablet"/>
+						
+					</div>
+					<h2>contacts-icon-phone-tablet</h2>
+				</li>
+				<li title="contacts-icon-tablet">
+					<div class="icon-box">
+						
+						<!-- contacts-icon-tablet -->
+						<img src="../sprite.svg#contacts-icon-tablet" class="svg-contacts-icon-tablet-dims" alt="contacts-icon-tablet"/>
+						
+					</div>
+					<h2>contacts-icon-tablet</h2>
+				</li>
+				<li title="contacts-location">
+					<div class="icon-box">
+						
+						<!-- contacts-location -->
+						<img src="../sprite.svg#contacts-location" class="svg-contacts-location-dims" alt="contacts-location"/>
+						
+					</div>
+					<h2>contacts-location</h2>
+				</li>
+				<li title="contacts-mail">
+					<div class="icon-box">
+						
+						<!-- contacts-mail -->
+						<img src="../sprite.svg#contacts-mail" class="svg-contacts-mail-dims" alt="contacts-mail"/>
+						
+					</div>
+					<h2>contacts-mail</h2>
+				</li>
+				<li title="contacts-phone">
+					<div class="icon-box">
+						
+						<!-- contacts-phone -->
+						<img src="../sprite.svg#contacts-phone" class="svg-contacts-phone-dims" alt="contacts-phone"/>
+						
+					</div>
+					<h2>contacts-phone</h2>
+				</li>
+				<li title="delete-button-form">
+					<div class="icon-box">
+						
+						<!-- delete-button-form -->
+						<img src="../sprite.svg#delete-button-form" class="svg-delete-button-form-dims" alt="delete-button-form"/>
+						
+					</div>
+					<h2>delete-button-form</h2>
+				</li>
+				<li title="dots">
+					<div class="icon-box">
+						
+						<!-- dots -->
+						<img src="../sprite.svg#dots" class="svg-dots-dims" alt="dots"/>
+						
+					</div>
+					<h2>dots</h2>
+				</li>
+				<li title="dropdown">
+					<div class="icon-box">
+						
+						<!-- dropdown -->
+						<img src="../sprite.svg#dropdown" class="svg-dropdown-dims" alt="dropdown"/>
+						
+					</div>
+					<h2>dropdown</h2>
+				</li>
+				<li title="dropdown-form">
+					<div class="icon-box">
+						
+						<!-- dropdown-form -->
+						<img src="../sprite.svg#dropdown-form" class="svg-dropdown-form-dims" alt="dropdown-form"/>
+						
+					</div>
+					<h2>dropdown-form</h2>
+				</li>
+				<li title="facebook">
+					<div class="icon-box">
+						
+						<!-- facebook -->
+						<img src="../sprite.svg#facebook" class="svg-facebook-dims" alt="facebook"/>
+						
+					</div>
+					<h2>facebook</h2>
+				</li>
+				<li title="filter">
+					<div class="icon-box">
+						
+						<!-- filter -->
+						<img src="../sprite.svg#filter" class="svg-filter-dims" alt="filter"/>
+						
+					</div>
+					<h2>filter</h2>
+				</li>
+				<li title="filter-checkbox-active">
+					<div class="icon-box">
+						
+						<!-- filter-checkbox-active -->
+						<img src="../sprite.svg#filter-checkbox-active" class="svg-filter-checkbox-active-dims" alt="filter-checkbox-active"/>
+						
+					</div>
+					<h2>filter-checkbox-active</h2>
+				</li>
+				<li title="filter-close">
+					<div class="icon-box">
+						
+						<!-- filter-close -->
+						<img src="../sprite.svg#filter-close" class="svg-filter-close-dims" alt="filter-close"/>
+						
+					</div>
+					<h2>filter-close</h2>
+				</li>
+				<li title="filter-close-tablet">
+					<div class="icon-box">
+						
+						<!-- filter-close-tablet -->
+						<img src="../sprite.svg#filter-close-tablet" class="svg-filter-close-tablet-dims" alt="filter-close-tablet"/>
+						
+					</div>
+					<h2>filter-close-tablet</h2>
+				</li>
+				<li title="filter-range-btn">
+					<div class="icon-box">
+						
+						<!-- filter-range-btn -->
+						<img src="../sprite.svg#filter-range-btn" class="svg-filter-range-btn-dims" alt="filter-range-btn"/>
+						
+					</div>
+					<h2>filter-range-btn</h2>
+				</li>
+				<li title="filter-show-more-tablet">
+					<div class="icon-box">
+						
+						<!-- filter-show-more-tablet -->
+						<img src="../sprite.svg#filter-show-more-tablet" class="svg-filter-show-more-tablet-dims" alt="filter-show-more-tablet"/>
+						
+					</div>
+					<h2>filter-show-more-tablet</h2>
+				</li>
+				<li title="flag-australia">
+					<div class="icon-box">
+						
+						<!-- flag-australia -->
+						<img src="../sprite.svg#flag-australia" class="svg-flag-australia-dims" alt="flag-australia"/>
+						
+					</div>
+					<h2>flag-australia</h2>
+				</li>
+				<li title="flag-belgium">
+					<div class="icon-box">
+						
+						<!-- flag-belgium -->
+						<img src="../sprite.svg#flag-belgium" class="svg-flag-belgium-dims" alt="flag-belgium"/>
+						
+					</div>
+					<h2>flag-belgium</h2>
+				</li>
+				<li title="flag-bosnia">
+					<div class="icon-box">
+						
+						<!-- flag-bosnia -->
+						<img src="../sprite.svg#flag-bosnia" class="svg-flag-bosnia-dims" alt="flag-bosnia"/>
+						
+					</div>
+					<h2>flag-bosnia</h2>
+				</li>
+				<li title="flag-czech">
+					<div class="icon-box">
+						
+						<!-- flag-czech -->
+						<img src="../sprite.svg#flag-czech" class="svg-flag-czech-dims" alt="flag-czech"/>
+						
+					</div>
+					<h2>flag-czech</h2>
+				</li>
+				<li title="flag-dominica">
+					<div class="icon-box">
+						
+						<!-- flag-dominica -->
+						<img src="../sprite.svg#flag-dominica" class="svg-flag-dominica-dims" alt="flag-dominica"/>
+						
+					</div>
+					<h2>flag-dominica</h2>
+				</li>
+				<li title="flag-france">
+					<div class="icon-box">
+						
+						<!-- flag-france -->
+						<img src="../sprite.svg#flag-france" class="svg-flag-france-dims" alt="flag-france"/>
+						
+					</div>
+					<h2>flag-france</h2>
+				</li>
+				<li title="flag-germany">
+					<div class="icon-box">
+						
+						<!-- flag-germany -->
+						<img src="../sprite.svg#flag-germany" class="svg-flag-germany-dims" alt="flag-germany"/>
+						
+					</div>
+					<h2>flag-germany</h2>
+				</li>
+				<li title="flag-seychelles">
+					<div class="icon-box">
+						
+						<!-- flag-seychelles -->
+						<img src="../sprite.svg#flag-seychelles" class="svg-flag-seychelles-dims" alt="flag-seychelles"/>
+						
+					</div>
+					<h2>flag-seychelles</h2>
+				</li>
+				<li title="flag-sri-lanka">
+					<div class="icon-box">
+						
+						<!-- flag-sri-lanka -->
+						<img src="../sprite.svg#flag-sri-lanka" class="svg-flag-sri-lanka-dims" alt="flag-sri-lanka"/>
+						
+					</div>
+					<h2>flag-sri-lanka</h2>
+				</li>
+				<li title="flag-thailand">
+					<div class="icon-box">
+						
+						<!-- flag-thailand -->
+						<img src="../sprite.svg#flag-thailand" class="svg-flag-thailand-dims" alt="flag-thailand"/>
+						
+					</div>
+					<h2>flag-thailand</h2>
+				</li>
+				<li title="flag-united-kingdom">
+					<div class="icon-box">
+						
+						<!-- flag-united-kingdom -->
+						<img src="../sprite.svg#flag-united-kingdom" class="svg-flag-united-kingdom-dims" alt="flag-united-kingdom"/>
+						
+					</div>
+					<h2>flag-united-kingdom</h2>
+				</li>
+				<li title="flag-usa">
+					<div class="icon-box">
+						
+						<!-- flag-usa -->
+						<img src="../sprite.svg#flag-usa" class="svg-flag-usa-dims" alt="flag-usa"/>
+						
+					</div>
+					<h2>flag-usa</h2>
+				</li>
+				<li title="form-arrow-back">
+					<div class="icon-box">
+						
+						<!-- form-arrow-back -->
+						<img src="../sprite.svg#form-arrow-back" class="svg-form-arrow-back-dims" alt="form-arrow-back"/>
+						
+					</div>
+					<h2>form-arrow-back</h2>
+				</li>
+				<li title="form-arrow-down">
+					<div class="icon-box">
+						
+						<!-- form-arrow-down -->
+						<img src="../sprite.svg#form-arrow-down" class="svg-form-arrow-down-dims" alt="form-arrow-down"/>
+						
+					</div>
+					<h2>form-arrow-down</h2>
+				</li>
+				<li title="form-border-fade-tablet">
+					<div class="icon-box">
+						
+						<!-- form-border-fade-tablet -->
+						<img src="../sprite.svg#form-border-fade-tablet" class="svg-form-border-fade-tablet-dims" alt="form-border-fade-tablet"/>
+						
+					</div>
+					<h2>form-border-fade-tablet</h2>
+				</li>
+				<li title="form-border-tablet">
+					<div class="icon-box">
+						
+						<!-- form-border-tablet -->
+						<img src="../sprite.svg#form-border-tablet" class="svg-form-border-tablet-dims" alt="form-border-tablet"/>
+						
+					</div>
+					<h2>form-border-tablet</h2>
+				</li>
+				<li title="form-bullet">
+					<div class="icon-box">
+						
+						<!-- form-bullet -->
+						<img src="../sprite.svg#form-bullet" class="svg-form-bullet-dims" alt="form-bullet"/>
+						
+					</div>
+					<h2>form-bullet</h2>
+				</li>
+				<li title="form-delete-button-tablet">
+					<div class="icon-box">
+						
+						<!-- form-delete-button-tablet -->
+						<img src="../sprite.svg#form-delete-button-tablet" class="svg-form-delete-button-tablet-dims" alt="form-delete-button-tablet"/>
+						
+					</div>
+					<h2>form-delete-button-tablet</h2>
+				</li>
+				<li title="form-direction-border-tablet">
+					<div class="icon-box">
+						
+						<!-- form-direction-border-tablet -->
+						<img src="../sprite.svg#form-direction-border-tablet" class="svg-form-direction-border-tablet-dims" alt="form-direction-border-tablet"/>
+						
+					</div>
+					<h2>form-direction-border-tablet</h2>
+				</li>
+				<li title="form-direction-line-mobile">
+					<div class="icon-box">
+						
+						<!-- form-direction-line-mobile -->
+						<img src="../sprite.svg#form-direction-line-mobile" class="svg-form-direction-line-mobile-dims" alt="form-direction-line-mobile"/>
+						
+					</div>
+					<h2>form-direction-line-mobile</h2>
+				</li>
+				<li title="form-dropdown">
+					<div class="icon-box">
+						
+						<!-- form-dropdown -->
+						<img src="../sprite.svg#form-dropdown" class="svg-form-dropdown-dims" alt="form-dropdown"/>
+						
+					</div>
+					<h2>form-dropdown</h2>
+				</li>
+				<li title="form-minus">
+					<div class="icon-box">
+						
+						<!-- form-minus -->
+						<img src="../sprite.svg#form-minus" class="svg-form-minus-dims" alt="form-minus"/>
+						
+					</div>
+					<h2>form-minus</h2>
+				</li>
+				<li title="form-plus">
+					<div class="icon-box">
+						
+						<!-- form-plus -->
+						<img src="../sprite.svg#form-plus" class="svg-form-plus-dims" alt="form-plus"/>
+						
+					</div>
+					<h2>form-plus</h2>
+				</li>
+				<li title="form-plus-quantity">
+					<div class="icon-box">
+						
+						<!-- form-plus-quantity -->
+						<img src="../sprite.svg#form-plus-quantity" class="svg-form-plus-quantity-dims" alt="form-plus-quantity"/>
+						
+					</div>
+					<h2>form-plus-quantity</h2>
+				</li>
+				<li title="header-dash-desktop-blue">
+					<div class="icon-box">
+						
+						<!-- header-dash-desktop-blue -->
+						<img src="../sprite.svg#header-dash-desktop-blue" class="svg-header-dash-desktop-blue-dims" alt="header-dash-desktop-blue"/>
+						
+					</div>
+					<h2>header-dash-desktop-blue</h2>
+				</li>
+				<li title="header-dash-desktop-white">
+					<div class="icon-box">
+						
+						<!-- header-dash-desktop-white -->
+						<img src="../sprite.svg#header-dash-desktop-white" class="svg-header-dash-desktop-white-dims" alt="header-dash-desktop-white"/>
+						
+					</div>
+					<h2>header-dash-desktop-white</h2>
+				</li>
+				<li title="heart">
+					<div class="icon-box">
+						
+						<!-- heart -->
+						<img src="../sprite.svg#heart" class="svg-heart-dims" alt="heart"/>
+						
+					</div>
+					<h2>heart</h2>
+				</li>
+				<li title="heart-active">
+					<div class="icon-box">
+						
+						<!-- heart-active -->
+						<img src="../sprite.svg#heart-active" class="svg-heart-active-dims" alt="heart-active"/>
+						
+					</div>
+					<h2>heart-active</h2>
+				</li>
+				<li title="htmlacademy">
+					<div class="icon-box">
+						
+						<!-- htmlacademy -->
+						<img src="../sprite.svg#htmlacademy" class="svg-htmlacademy-dims" alt="htmlacademy"/>
+						
+					</div>
+					<h2>htmlacademy</h2>
+				</li>
+				<li title="icon-back">
+					<div class="icon-box">
+						
+						<!-- icon-back -->
+						<img src="../sprite.svg#icon-back" class="svg-icon-back-dims" alt="icon-back"/>
+						
+					</div>
+					<h2>icon-back</h2>
+				</li>
+				<li title="icon-call">
+					<div class="icon-box">
+						
+						<!-- icon-call -->
+						<img src="../sprite.svg#icon-call" class="svg-icon-call-dims" alt="icon-call"/>
+						
+					</div>
+					<h2>icon-call</h2>
+				</li>
+				<li title="icon-mail">
+					<div class="icon-box">
+						
+						<!-- icon-mail -->
+						<img src="../sprite.svg#icon-mail" class="svg-icon-mail-dims" alt="icon-mail"/>
+						
+					</div>
+					<h2>icon-mail</h2>
+				</li>
+				<li title="icon-plus-more">
+					<div class="icon-box">
+						
+						<!-- icon-plus-more -->
+						<img src="../sprite.svg#icon-plus-more" class="svg-icon-plus-more-dims" alt="icon-plus-more"/>
+						
+					</div>
+					<h2>icon-plus-more</h2>
+				</li>
+				<li title="icon_mail_btn">
+					<div class="icon-box">
+						
+						<!-- icon_mail_btn -->
+						<img src="../sprite.svg#icon_mail_btn" class="svg-icon_mail_btn-dims" alt="icon_mail_btn"/>
+						
+					</div>
+					<h2>icon_mail_btn</h2>
+				</li>
+				<li title="icon_menu_mobile">
+					<div class="icon-box">
+						
+						<!-- icon_menu_mobile -->
+						<img src="../sprite.svg#icon_menu_mobile" class="svg-icon_menu_mobile-dims" alt="icon_menu_mobile"/>
+						
+					</div>
+					<h2>icon_menu_mobile</h2>
+				</li>
+				<li title="icon_menu_mobile-grey">
+					<div class="icon-box">
+						
+						<!-- icon_menu_mobile-grey -->
+						<img src="../sprite.svg#icon_menu_mobile-grey" class="svg-icon_menu_mobile-grey-dims" alt="icon_menu_mobile-grey"/>
+						
+					</div>
+					<h2>icon_menu_mobile-grey</h2>
+				</li>
+				<li title="icon_menu_mobile_close">
+					<div class="icon-box">
+						
+						<!-- icon_menu_mobile_close -->
+						<img src="../sprite.svg#icon_menu_mobile_close" class="svg-icon_menu_mobile_close-dims" alt="icon_menu_mobile_close"/>
+						
+					</div>
+					<h2>icon_menu_mobile_close</h2>
+				</li>
+				<li title="icon_phone_btn">
+					<div class="icon-box">
+						
+						<!-- icon_phone_btn -->
+						<img src="../sprite.svg#icon_phone_btn" class="svg-icon_phone_btn-dims" alt="icon_phone_btn"/>
+						
+					</div>
+					<h2>icon_phone_btn</h2>
+				</li>
+				<li title="instagram">
+					<div class="icon-box">
+						
+						<!-- instagram -->
+						<img src="../sprite.svg#instagram" class="svg-instagram-dims" alt="instagram"/>
+						
+					</div>
+					<h2>instagram</h2>
+				</li>
+				<li title="level-input-med">
+					<div class="icon-box">
+						
+						<!-- level-input-med -->
+						<img src="../sprite.svg#level-input-med" class="svg-level-input-med-dims" alt="level-input-med"/>
+						
+					</div>
+					<h2>level-input-med</h2>
+				</li>
+				<li title="like">
+					<div class="icon-box">
+						
+						<!-- like -->
+						<img src="../sprite.svg#like" class="svg-like-dims" alt="like"/>
+						
+					</div>
+					<h2>like</h2>
+				</li>
+				<li title="like-active">
+					<div class="icon-box">
+						
+						<!-- like-active -->
+						<img src="../sprite.svg#like-active" class="svg-like-active-dims" alt="like-active"/>
+						
+					</div>
+					<h2>like-active</h2>
+				</li>
+				<li title="like-active-hover">
+					<div class="icon-box">
+						
+						<!-- like-active-hover -->
+						<img src="../sprite.svg#like-active-hover" class="svg-like-active-hover-dims" alt="like-active-hover"/>
+						
+					</div>
+					<h2>like-active-hover</h2>
+				</li>
+				<li title="like-hover">
+					<div class="icon-box">
+						
+						<!-- like-hover -->
+						<img src="../sprite.svg#like-hover" class="svg-like-hover-dims" alt="like-hover"/>
+						
+					</div>
+					<h2>like-hover</h2>
+				</li>
+				<li title="map-mark">
+					<div class="icon-box">
+						
+						<!-- map-mark -->
+						<img src="../sprite.svg#map-mark" class="svg-map-mark-dims" alt="map-mark"/>
+						
+					</div>
+					<h2>map-mark</h2>
+				</li>
+				<li title="map-mark-desktop">
+					<div class="icon-box">
+						
+						<!-- map-mark-desktop -->
+						<img src="../sprite.svg#map-mark-desktop" class="svg-map-mark-desktop-dims" alt="map-mark-desktop"/>
+						
+					</div>
+					<h2>map-mark-desktop</h2>
+				</li>
+				<li title="map-mark-tablet">
+					<div class="icon-box">
+						
+						<!-- map-mark-tablet -->
+						<img src="../sprite.svg#map-mark-tablet" class="svg-map-mark-tablet-dims" alt="map-mark-tablet"/>
+						
+					</div>
+					<h2>map-mark-tablet</h2>
+				</li>
+				<li title="map-marker">
+					<div class="icon-box">
+						
+						<!-- map-marker -->
+						<img src="../sprite.svg#map-marker" class="svg-map-marker-dims" alt="map-marker"/>
+						
+					</div>
+					<h2>map-marker</h2>
+				</li>
+				<li title="menu">
+					<div class="icon-box">
+						
+						<!-- menu -->
+						<img src="../sprite.svg#menu" class="svg-menu-dims" alt="menu"/>
+						
+					</div>
+					<h2>menu</h2>
+				</li>
+				<li title="menu-close">
+					<div class="icon-box">
+						
+						<!-- menu-close -->
+						<img src="../sprite.svg#menu-close" class="svg-menu-close-dims" alt="menu-close"/>
+						
+					</div>
+					<h2>menu-close</h2>
+				</li>
+				<li title="month-arrow-left">
+					<div class="icon-box">
+						
+						<!-- month-arrow-left -->
+						<img src="../sprite.svg#month-arrow-left" class="svg-month-arrow-left-dims" alt="month-arrow-left"/>
+						
+					</div>
+					<h2>month-arrow-left</h2>
+				</li>
+				<li title="month-arrow-right">
+					<div class="icon-box">
+						
+						<!-- month-arrow-right -->
+						<img src="../sprite.svg#month-arrow-right" class="svg-month-arrow-right-dims" alt="month-arrow-right"/>
+						
+					</div>
+					<h2>month-arrow-right</h2>
+				</li>
+				<li title="offline">
+					<div class="icon-box">
+						
+						<!-- offline -->
+						<img src="../sprite.svg#offline" class="svg-offline-dims" alt="offline"/>
+						
+					</div>
+					<h2>offline</h2>
+				</li>
+				<li title="online">
+					<div class="icon-box">
+						
+						<!-- online -->
+						<img src="../sprite.svg#online" class="svg-online-dims" alt="online"/>
+						
+					</div>
+					<h2>online</h2>
+				</li>
+				<li title="open-buisness">
+					<div class="icon-box">
+						
+						<!-- open-buisness -->
+						<img src="../sprite.svg#open-buisness" class="svg-open-buisness-dims" alt="open-buisness"/>
+						
+					</div>
+					<h2>open-buisness</h2>
+				</li>
+				<li title="page-arrow-left">
+					<div class="icon-box">
+						
+						<!-- page-arrow-left -->
+						<img src="../sprite.svg#page-arrow-left" class="svg-page-arrow-left-dims" alt="page-arrow-left"/>
+						
+					</div>
+					<h2>page-arrow-left</h2>
+				</li>
+				<li title="plane">
+					<div class="icon-box">
+						
+						<!-- plane -->
+						<img src="../sprite.svg#plane" class="svg-plane-dims" alt="plane"/>
+						
+					</div>
+					<h2>plane</h2>
+				</li>
+				<li title="polygon">
+					<div class="icon-box">
+						
+						<!-- polygon -->
+						<img src="../sprite.svg#polygon" class="svg-polygon-dims" alt="polygon"/>
+						
+					</div>
+					<h2>polygon</h2>
+				</li>
+				<li title="polygon-white">
+					<div class="icon-box">
+						
+						<!-- polygon-white -->
+						<img src="../sprite.svg#polygon-white" class="svg-polygon-white-dims" alt="polygon-white"/>
+						
+					</div>
+					<h2>polygon-white</h2>
+				</li>
+				<li title="price-list-back-desktop">
+					<div class="icon-box">
+						
+						<!-- price-list-back-desktop -->
+						<img src="../sprite.svg#price-list-back-desktop" class="svg-price-list-back-desktop-dims" alt="price-list-back-desktop"/>
+						
+					</div>
+					<h2>price-list-back-desktop</h2>
+				</li>
+				<li title="qty-minus">
+					<div class="icon-box">
+						
+						<!-- qty-minus -->
+						<img src="../sprite.svg#qty-minus" class="svg-qty-minus-dims" alt="qty-minus"/>
+						
+					</div>
+					<h2>qty-minus</h2>
+				</li>
+				<li title="qty-minus-mobile">
+					<div class="icon-box">
+						
+						<!-- qty-minus-mobile -->
+						<img src="../sprite.svg#qty-minus-mobile" class="svg-qty-minus-mobile-dims" alt="qty-minus-mobile"/>
+						
+					</div>
+					<h2>qty-minus-mobile</h2>
+				</li>
+				<li title="qty-plus">
+					<div class="icon-box">
+						
+						<!-- qty-plus -->
+						<img src="../sprite.svg#qty-plus" class="svg-qty-plus-dims" alt="qty-plus"/>
+						
+					</div>
+					<h2>qty-plus</h2>
+				</li>
+				<li title="qty-plus-mobile">
+					<div class="icon-box">
+						
+						<!-- qty-plus-mobile -->
+						<img src="../sprite.svg#qty-plus-mobile" class="svg-qty-plus-mobile-dims" alt="qty-plus-mobile"/>
+						
+					</div>
+					<h2>qty-plus-mobile</h2>
+				</li>
+				<li title="reg-arrow">
+					<div class="icon-box">
+						
+						<!-- reg-arrow -->
+						<img src="../sprite.svg#reg-arrow" class="svg-reg-arrow-dims" alt="reg-arrow"/>
+						
+					</div>
+					<h2>reg-arrow</h2>
+				</li>
+				<li title="return">
+					<div class="icon-box">
+						
+						<!-- return -->
+						<img src="../sprite.svg#return" class="svg-return-dims" alt="return"/>
+						
+					</div>
+					<h2>return</h2>
+				</li>
+				<li title="run">
+					<div class="icon-box">
+						
+						<!-- run -->
+						<img src="../sprite.svg#run" class="svg-run-dims" alt="run"/>
+						
+					</div>
+					<h2>run</h2>
+				</li>
+				<li title="service-back-desktop">
+					<div class="icon-box">
+						
+						<!-- service-back-desktop -->
+						<img src="../sprite.svg#service-back-desktop" class="svg-service-back-desktop-dims" alt="service-back-desktop"/>
+						
+					</div>
+					<h2>service-back-desktop</h2>
+				</li>
+				<li title="service-tablet">
+					<div class="icon-box">
+						
+						<!-- service-tablet -->
+						<img src="../sprite.svg#service-tablet" class="svg-service-tablet-dims" alt="service-tablet"/>
+						
+					</div>
+					<h2>service-tablet</h2>
+				</li>
+				<li title="show-more-plus">
+					<div class="icon-box">
+						
+						<!-- show-more-plus -->
+						<img src="../sprite.svg#show-more-plus" class="svg-show-more-plus-dims" alt="show-more-plus"/>
+						
+					</div>
+					<h2>show-more-plus</h2>
+				</li>
+				<li title="small-arrow">
+					<div class="icon-box">
+						
+						<!-- small-arrow -->
+						<img src="../sprite.svg#small-arrow" class="svg-small-arrow-dims" alt="small-arrow"/>
+						
+					</div>
+					<h2>small-arrow</h2>
+				</li>
+				<li title="small-cross">
+					<div class="icon-box">
+						
+						<!-- small-cross -->
+						<img src="../sprite.svg#small-cross" class="svg-small-cross-dims" alt="small-cross"/>
+						
+					</div>
+					<h2>small-cross</h2>
+				</li>
+				<li title="tick">
+					<div class="icon-box">
+						
+						<!-- tick -->
+						<img src="../sprite.svg#tick" class="svg-tick-dims" alt="tick"/>
+						
+					</div>
+					<h2>tick</h2>
+				</li>
+				<li title="topmenu-mail">
+					<div class="icon-box">
+						
+						<!-- topmenu-mail -->
+						<img src="../sprite.svg#topmenu-mail" class="svg-topmenu-mail-dims" alt="topmenu-mail"/>
+						
+					</div>
+					<h2>topmenu-mail</h2>
+				</li>
+				<li title="topmenu-phone">
+					<div class="icon-box">
+						
+						<!-- topmenu-phone -->
+						<img src="../sprite.svg#topmenu-phone" class="svg-topmenu-phone-dims" alt="topmenu-phone"/>
+						
+					</div>
+					<h2>topmenu-phone</h2>
+				</li>
+				<li title="triangle-arrow-left">
+					<div class="icon-box">
+						
+						<!-- triangle-arrow-left -->
+						<img src="../sprite.svg#triangle-arrow-left" class="svg-triangle-arrow-left-dims" alt="triangle-arrow-left"/>
+						
+					</div>
+					<h2>triangle-arrow-left</h2>
+				</li>
+				<li title="triangle-arrow-right">
+					<div class="icon-box">
+						
+						<!-- triangle-arrow-right -->
+						<img src="../sprite.svg#triangle-arrow-right" class="svg-triangle-arrow-right-dims" alt="triangle-arrow-right"/>
+						
+					</div>
+					<h2>triangle-arrow-right</h2>
+				</li>
+				<li title="user">
+					<div class="icon-box">
+						
+						<!-- user -->
+						<img src="../sprite.svg#user" class="svg-user-dims" alt="user"/>
+						
+					</div>
+					<h2>user</h2>
+				</li>
+				<li title="vk">
+					<div class="icon-box">
+						
+						<!-- vk -->
+						<img src="../sprite.svg#vk" class="svg-vk-dims" alt="vk"/>
+						
+					</div>
+					<h2>vk</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Fri, 05 Feb 2021 16:43:40 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
